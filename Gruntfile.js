@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                 files: [
                     '<%= wlp.app %>/less/**/*.less'
                 ],
-                tasks: ['less']
+                tasks: ['less', 'autoprefixer']
             },
             jst: {
                 files: [
@@ -295,6 +295,12 @@ module.exports = function (grunt) {
                     '.tmp/styles/wlp.min.css': '<%= wlp.app %>/less/wlp.less'
                 }
             }
+        },
+
+        autoprefixer: {
+            all: {
+                src: '.tmp/styles/**/*.css'
+            }
         }
 
     });
@@ -314,6 +320,7 @@ module.exports = function (grunt) {
             'createDefaultTemplate',
             'jst',
             'less:compile',
+            'autoprefixer',
             'cssmin',
             'copy:serve',
             'connect:livereload',
@@ -331,6 +338,7 @@ module.exports = function (grunt) {
         'imagemin',
         'htmlmin',
         'less',
+        'autoprefixer',
         // 'concat',
         // 'cssmin:dist',
         // 'uglify',
