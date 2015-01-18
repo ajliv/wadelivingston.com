@@ -10,7 +10,8 @@ define([
         url: '',
 
         defaults: {
-
+            photos: [],
+            title: ''
         },
 
         initialize: function() {

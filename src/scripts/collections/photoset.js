@@ -12,7 +12,8 @@ define([
 
 
         initialize: function () {
-            this.on('reset', this.setOffsets, this);
+            this.on('add remove reset', this.setOffsets, this);
+            return this;
         },
 
 
@@ -24,15 +25,13 @@ define([
                 offset += ps.get('photos').length;
             });
 
-            console.log(this.toJSON());
             return this;
         },
 
 
         getAllPhotos: function () {
             var json = this.toJSON();
-            var obj = _.flatten(_.pluck(json, 'photos'));
-            return JSON.parse(JSON.stringify(obj));
+            return _.flatten(_.pluck(json, 'photos'));
         }
 
     });

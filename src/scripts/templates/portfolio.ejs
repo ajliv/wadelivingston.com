@@ -2,9 +2,9 @@
     <% _.forEach(photosets, function (photoset) { %>
     <div class="photoset">
         <a href="#portfolio/<%= _s.slugify(photoset.title) %>">
-            <img src="<%= photoset.cover.large.src %>" alt="<%= photoset.title %>">
+            <img src="<%= photoset.cover.large.src %>">
             <span class="photoset-info">
-                <h2 class="photoset-title"><%= photoset.title %></h2>
+                <h2 class="photoset-title"><span><%= photoset.title %></span></h2>
             </span>
         </a>
     </div>
