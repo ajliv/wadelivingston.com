@@ -1,6 +1,6 @@
 {
   "generator-backbone": {
-    "appPath": "app",
+    "appPath": "src",
     "appName": "Wlp",
     "coffee": false,
     "testFramework": "mocha",

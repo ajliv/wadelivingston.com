@@ -21,7 +21,7 @@ module.exports = function (grunt) {
 
     // configurable paths
     var wlpConfig = {
-        app: 'app',
+        app: 'src',
         dist: 'dist'
     };
 
@@ -210,19 +210,18 @@ module.exports = function (grunt) {
                     dest: '<%= wlp.dist %>',
                     src: [
                         '*.{ico,txt}',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/{,*/}*.*',
+                        'images/{,*/}*.{webp,gif}'
                     ]
                 }, {
                     expand: true,
                     dot: true,
                     flatten: true,
-                    cwd: '<%= wlp.app %>/bower_components',
-                    dest: '<%= wlp.dist %>/styles/fonts',
+                    cwd: '<%= wlp.app %>',
+                    dest: '<%= wlp.dist %>/fonts',
                     src: [
-                        'slick-carousel/slick/fonts/{,*/}*.*',
-                        'fontawesome/fonts/{,*/}*.*',
-                        'bootstrap/dist/fonts/{,*/}*.*'
+                        'fonts/{,*/}*.*',
+                        'bower_components/fontawesome/fonts/{,*/}*.*',
+                        'bower_components/bootstrap/dist/fonts/{,*/}*.*'
                     ]
                 }, {
                     expand: true,
@@ -237,15 +236,28 @@ module.exports = function (grunt) {
                 }]
             },
             serve: {
-                expand: true,
-                dot: true,
-                flatten: true,
-                dest: '.tmp/scripts/vendor',
-                cwd: '<%= wlp.app %>/bower_components',
-                src: [
-                    'modernizr/modernizr.js',
-                    'requirejs/require.js'
-                ]
+                files: [{
+                    expand: true,
+                    dot: true,
+                    flatten: true,
+                    dest: '.tmp/scripts/vendor',
+                    cwd: '<%= wlp.app %>/bower_components',
+                    src: [
+                        'modernizr/modernizr.js',
+                        'requirejs/require.js'
+                    ]
+                }, {
+                    expand: true,
+                    dot: true,
+                    flatten: true,
+                    cwd: '<%= wlp.app %>',
+                    dest: '.tmp/fonts',
+                    src: [
+                        'fonts/{,*/}*.*',
+                        'bower_components/fontawesome/fonts/{,*/}*.*',
+                        'bower_components/bootstrap/dist/fonts/{,*/}*.*'
+                    ]
+                }]
             }
         },
 

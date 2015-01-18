@@ -4,18 +4,19 @@ define([
     'jquery',
     'underscore',
     'backbone',
-], function ($, _, Backbone) {
+    'views/portfolio',
+    'views/viewer'
+], function ($, _, Backbone, PortfolioView, ViewerView) {
     'use strict';
 
     var AppView = Backbone.View.extend({
 
         el: 'body',
 
-        events: {},
-
         initialize: function () {
             console.log('hello');
-            console.log('hello');
+            new PortfolioView({ collection: this.collection }).render();
+            // new ViewerView().render();
             return this;
         },
 

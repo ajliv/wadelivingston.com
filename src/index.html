@@ -6,7 +6,6 @@
     <title>Wade Livingston Photography</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.tmp) styles/wlp.min.css -->
     <link rel="stylesheet" href="styles/wlp.css">
     <!-- endbuild -->
@@ -14,16 +13,26 @@
     <script src="//use.typekit.net/icr4ffa.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 </head>
-<body id="wlp">
+<body class="wlp">
 
-    <header id="header" class="wlp-header">
-        <h1>Wade Livinston Photography</h1>
+    <header id="header" class="wlp-header contain">
+        <h1>Wade Livingston Photography</h1>
+        <ul class="menu">
+            <li class="active"><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Studio/Contact</a></li>
+        </ul>
+        <ul class="social">
+            <li><a href="https://www.facebook.com/pages/Wade-Livingston-Photography/114605071942034" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="http://instagram.com/wadelivingston" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        </ul>
     </header>
 
-    <div id="viewer" class="wlp-viewer">
-        <div id="swiper" class="wlp-swiper"></div>
-        <div id="slider" class="wlp-slider"></div>
-    </div>
+    <div id="portfolio" class="wlp-portfolio contain"></div>
+    <div id="studio" class="wlp-studio contain"></div>
+
+    <div id="viewer" class="wlp-viewer"></div>
+    <a id="back-to-top" class="back-to-top" href="#"><i class="fa fa-fw fa-angle-up"></i></a>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- <script>
