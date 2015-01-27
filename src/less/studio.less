@@ -1,3 +1,56 @@
 .wlp-studio {
-    padding: 4em 3em 5em;
+    .clearfix;
+    padding: 5em 1em;
+
+    @media (min-width: 480px) {
+        padding: 10.2em 3em 10em;
+    }
+
+    @media (min-width: 1025px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .studio-contact {
+        float: none;
+    }
+
+
+    a {
+        display: inline;
+        padding-bottom: 0;
+    }
+
+    i {
+        color: @silver;
+        font-size: 12px;
+        margin-left: 2px;
+    }
+
+    img {
+        margin-bottom: 20px;
+    }
+
+    p,
+    address {
+        color: @gray;
+        font-size: 1em;
+        font-weight: 300;
+        margin-bottom: 1em;
+
+        @media (min-width: 480px) {
+            font-size: 1.2em;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        img {
+            float: left;
+            margin: 0 19px 0 0;
+            padding-left: 3em;
+            padding-right: 1px;
+            width: (2 / 3) * 100%;
+        }
+    }
+
 }

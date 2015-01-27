@@ -1,0 +1,90 @@
+.wlp-portfolio {
+    overflow: hidden;
+    padding-bottom: 5em;
+
+    @media (min-width: 480px) {
+        padding-bottom: 10.2em;
+    }
+}
+
+.wlp-photos {
+    .clearfix;
+    margin-left: -1px;
+    margin-right: -1px;
+    padding: 0;
+    position: relative;
+}
+
+.photoset {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    margin: 0 0 2px;
+    padding: 0 1px;
+    position: relative;
+    width: 100%;
+
+    @media (min-width: 480px) {
+        width: (1 / 2) * 100%;
+    }
+    @media (min-width: 768px) {
+        width: (1 / 3) * 100%;
+    }
+    @media (min-width: 1800px) {
+        width: (1 / 4) * 100%;
+    }
+    @media (min-width: 2400px) {
+        width: (1 / 5) * 100%;
+    }
+
+    a {
+        border-bottom: none;
+        display: block;
+        padding-bottom: 0;
+        position: relative;
+
+        html.no-touch &:hover {
+            .photoset-info {
+                opacity: 1;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        margin: 0;
+        position: relative;
+        width: 100%;
+    }
+}
+
+.photoset-info {
+    // background: fade(#fff, 86);
+    background: fade(lighten(@aqua, 24), 86);
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: opacity .3s @easeInOutQuad;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+}
+
+.photoset-title {
+    color: @black;
+    display: block;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1;
+    margin: 0;
+    padding: 0 1em;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50%; left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+
+    @media (min-width: 1025px) {
+        font-size: 1.3em;
+    }
+}

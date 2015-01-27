@@ -31,14 +31,12 @@ require.config({
 require([
     'jquery',
     'lodash',
-    'underscore.string',
     'backbone',
     'views/app',
     'collections/photoset',
     'bootstrap'
-], function ($, _, s, Backbone, AppView, PhotosetCollection) {
+], function ($, _, Backbone, AppView, PhotosetCollection) {
     var WLP = window.WLP = {};
-    window._s = s;
 
     WLP.Photosets = new PhotosetCollection();
     WLP.Photosets.once('reset', function (collection) {

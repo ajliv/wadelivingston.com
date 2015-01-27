@@ -4,8 +4,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'templates'
-], function ($, _, Backbone, JST) {
+    'templates',
+    'underscore.string'
+], function ($, _, Backbone, JST, s) {
     'use strict';
 
     var PortfolioView = Backbone.View.extend({
@@ -20,8 +21,11 @@ define([
         },
 
         render: function () {
-            // console.log(_str.slugify('Testin testin test'));
-            this.$el.html(this.template({ photosets: this.collection.toJSON() }));
+            var data = { photosets: this.collection.toJSON() };
+            _.forEach(data.photosets, function (photoset) {
+                if (!photoset.slug) photoset.slug = s.slugify(photoset.title);
+            });
+            this.$el.html( this.template(data) );
             return this;
         }
     });

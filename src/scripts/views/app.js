@@ -15,8 +15,10 @@ define([
 
         initialize: function () {
             console.log('hello');
+
+            new ViewerView();
             new PortfolioView({ collection: this.collection }).render();
-            // new ViewerView().render();
+
             return this;
         },
 

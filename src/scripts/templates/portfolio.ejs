@@ -1,7 +1,7 @@
 <div class="wlp-photos">
     <% _.forEach(photosets, function (photoset) { %>
     <div class="photoset">
-        <a href="#portfolio/<%= _s.slugify(photoset.title) %>">
+        <a href="#portfolio/<%= photoset.slug %>">
             <img src="<%= photoset.cover.large.src %>">
             <span class="photoset-info">
                 <h2 class="photoset-title"><span><%= photoset.title %></span></h2>

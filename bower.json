@@ -12,7 +12,7 @@
     "photoswipe": "~4.0.0",
     "fastclick": "~1.0.3",
     "colors": "~2.0.0",
-    "fontawesome": "~4.2.0",
+    "fontawesome": "~4.3.0",
     "underscore.string": "~3.0.0"
   },
   "devDependencies": {}

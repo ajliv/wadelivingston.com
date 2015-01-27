@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"margin-",
+				"margin-bottom"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"cen",
+				"center"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"trans",
+				"transform	CSS - transform: ;"
+			],
+			[
+				"hid",
+				"hidden"
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"re",
+				"relative"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"border-bot",
+				"border-bottom-color"
+			],
+			[
+				"lin",
+				"line-height"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"upp",
+				"uppercase"
+			],
+			[
 				"get",
 				"getAllPhotos"
 			],
@@ -58,10 +142,6 @@
 			[
 				"bower",
 				"bower_components"
-			],
-			[
-				"font",
-				"font-weight"
 			],
 			[
 				"env",
@@ -148,16 +228,49 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/ajlivingston/Sites/wlp"
+		"/Users/ajlivingston/Sites/wlp/src",
+		"/Users/ajlivingston/Sites/wlp/src/less",
+		"/Users/ajlivingston/Sites/wlp/src/scripts",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/collections",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/models",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/templates",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/views"
 	],
 	"file_history":
 	[
+		"/Users/ajlivingston/Sites/wlp/src/less/social.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/menu.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/viewer.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/studio.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/core.less",
+		"/Users/ajlivingston/Sites/wlp/src/index.html",
+		"/Users/ajlivingston/Sites/wlp/src/less/portfolio.less",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/collections/photoset.js",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/models/photoset.js",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/templates/portfolio.ejs",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/views/portfolio.js",
+		"/Users/ajlivingston/Sites/wlp/src/less/wlp.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/header.less",
+		"/Users/ajlivingston/Sites/wlp/src/bower_components/bootstrap/grunt/configBridge.json",
+		"/Users/ajlivingston/Sites/wlp/src/bower_components/backbone/CONTRIBUTING.md",
+		"/Users/ajlivingston/Sites/wlp/src/less/photos.less",
+		"/Users/ajlivingston/Sites/wlp/Gruntfile.js",
+		"/Users/ajlivingston/Sites/wlp/package.json",
+		"/Users/ajlivingston/Sites/wlp/src/less/back-to-top.less",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/wlp.js",
+		"/Users/ajlivingston/Sites/wlp/src/bower_components/jquery/src/var/indexOf.js",
+		"/Users/ajlivingston/Sites/wlp/src/less/swiper.less",
+		"/Users/ajlivingston/Sites/wlp/src/less/variables.less",
+		"/Users/ajlivingston/Sites/wlp/bower.json",
+		"/Users/ajlivingston/Sites/wlp/src/bower_components/modernizr/feature-detects/css-objectfit.js",
+		"/Users/ajlivingston/Sites/wlp/src/bower_components/backbone/CNAME",
+		"/Users/ajlivingston/Sites/wlp/.bowerrc",
 		"/Users/ajlivingston/Sites/wlp/src/scripts/views/viewer.js",
+		"/Users/ajlivingston/Sites/wlp/src/scripts/views/app.js",
 		"/Users/ajlivingston/Library/Application Support/Sublime Text 3/Packages/User/wlp.sublime-project",
 		"/Users/ajlivingston/Sites/wlp/src/scripts/views/slider.js",
 		"/Users/ajlivingston/Sites/wlp/.yo-rc.json",
 		"/Users/ajlivingston/Sites/wlp/src/less/slider.less",
-		"/Users/ajlivingston/Sites/wlp/src/less/swiper.less",
 		"/Users/ajlivingston/Sites/wlp/src/less/bootstrap.less",
 		"/Users/ajlivingston/Sites/wlp/.tmp/styles/wlp.css",
 		"/Users/ajlivingston/Sites/wlp/app/less/wlp.less",
@@ -176,14 +289,11 @@
 		"/Users/ajlivingston/Sites/wlp/app/less/header.less",
 		"/Users/ajlivingston/Sites/wlp/app/less/studio.less",
 		"/Users/ajlivingston/Sites/wlp/app/scripts/templates/slider.ejs",
-		"/Users/ajlivingston/Sites/wlp/Gruntfile.js",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/photoswipe/photoswipe.json",
 		"/Users/ajlivingston/Sites/wlp/app/data/photos.json",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/jquery/src/core/parseHTML.js",
-		"/Users/ajlivingston/Sites/wlp/package.json",
 		"/Users/ajlivingston/Sites/wlp/app/less/core.less",
 		"/Users/ajlivingston/Sites/wlp/app/less/photos.less",
-		"/Users/ajlivingston/Sites/wlp/.bowerrc",
 		"/Users/ajlivingston/Sites/wlp/src",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/backbone/LICENSE",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/modernizr/feature-detects/battery-level.js",
@@ -198,7 +308,6 @@
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/modernizr/feature-detects/workers-blobworkers.js",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/bootstrap/less/mixins/opacity.less",
 		"/Users/ajlivingston/Sites/wlp/app/data/photosets.json",
-		"/Users/ajlivingston/Sites/wlp/bower.json",
 		"/Users/ajlivingston/Sites/wlp/app/bower_components/bootstrap/less/bootstrap.less",
 		"/Users/ajlivingston/Sites/ajliv.in/ajliv.css",
 		"/Users/ajlivingston/Sites/ajliv.in/less/ajliv.less",
@@ -220,7 +329,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -235,6 +344,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"window",
+			"lodsh",
+			"underscore.string",
+			"underscore",
+			"slugi",
+			":",
+			"container",
+			"px",
+			"SwiperView",
 			"'app/",
 			":",
 			"width",
@@ -289,7 +407,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 38.0
 	},
 	"input":
 	{
@@ -337,6 +455,62 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"src/less/core.less"
+			],
+			[
+				"index",
+				"src/index.html"
+			],
+			[
+				"menu",
+				"src/less/menu.less"
+			],
+			[
+				"inde",
+				"src/index.html"
+			],
+			[
+				"social",
+				"src/less/social.less"
+			],
+			[
+				"gruntfil",
+				"Gruntfile.js"
+			],
+			[
+				"menul",
+				"src/less/menu.less"
+			],
+			[
+				"index.",
+				"src/index.html"
+			],
+			[
+				"menu.le",
+				"src/less/menu.less"
+			],
+			[
+				"menu.l",
+				"src/less/menu.less"
+			],
+			[
+				"core",
+				"src/less/core.less"
+			],
+			[
+				"wlp.les",
+				"src/less/wlp.less"
+			],
+			[
+				"bower.js",
+				"bower.json"
+			],
+			[
+				"app.js",
+				"src/scripts/views/app.js"
+			],
 			[
 				"swipers",
 				"src/scripts/views/swiper.js"
@@ -398,10 +572,6 @@
 				"app/less/fonts.less"
 			],
 			[
-				"inde",
-				"app/index.html"
-			],
-			[
 				"wlp",
 				"app/scripts/wlp.js"
 			],
@@ -423,7 +593,7 @@
 		[
 			[
 				"",
-				"~/Library/Application Support/Sublime Text 3/Packages/User/wlp-cms.sublime-project"
+				"~/Library/Application Support/Sublime Text 3/Packages/User/jarvis.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -444,7 +614,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 169.0,
+	"side_bar_width": 174.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
