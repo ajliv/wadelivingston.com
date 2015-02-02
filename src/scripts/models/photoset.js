@@ -7,6 +7,8 @@ define([
     'use strict';
 
     var PhotosetModel = Backbone.Model.extend({
+        idAttribute: '_id',
+
         url: '',
 
         defaults: {

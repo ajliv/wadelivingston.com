@@ -5,8 +5,9 @@ define([
     'underscore',
     'backbone',
     'templates',
+    'views/viewer',
     'underscore.string'
-], function ($, _, Backbone, JST, s) {
+], function ($, _, Backbone, JST, ViewerView, s) {
     'use strict';
 
     var PortfolioView = Backbone.View.extend({
@@ -14,9 +15,12 @@ define([
 
         el: '#portfolio',
 
-        events: {},
+        events: {
+            'click a[data-photoset]': 'openPhotoset'
+        },
 
         initialize: function () {
+            this.viewer = new ViewerView().render();
             return this;
         },
 
@@ -27,6 +31,17 @@ define([
             });
             this.$el.html( this.template(data) );
             return this;
+        },
+
+        openPhotoset: function (e) {
+            var id = $(e.currentTarget).data('photoset');
+            var photoset = WLP.Photosets.get(id);
+
+            e.preventDefault();
+
+            console.log(WLP.Photosets.get(id).toJSON());
+
+            this.viewer.goTo(photoset.get('offset'));
         }
     });
 

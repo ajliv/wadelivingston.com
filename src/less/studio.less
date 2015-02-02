@@ -1,15 +1,5 @@
 .wlp-studio {
     .clearfix;
-    padding: 5em 1em;
-
-    @media (min-width: 480px) {
-        padding: 10.2em 3em 10em;
-    }
-
-    @media (min-width: 1025px) {
-        padding-left: 0;
-        padding-right: 0;
-    }
 
     .studio-contact {
         float: none;
@@ -28,7 +18,19 @@
     }
 
     img {
-        margin-bottom: 20px;
+        margin: 0 0 1em;
+
+        @media (min-width: 768px) {
+            margin-bottom: 1.2em;
+        }
+        @media (min-width: 1025px) {
+            float: left;
+            margin-bottom: 0;
+            margin-right: 19px;
+            // padding-left: 3em;
+            padding-right: 1px;
+            width: (2 / 3) * 100%;
+        }
     }
 
     p,
@@ -36,20 +38,10 @@
         color: @gray;
         font-size: 1em;
         font-weight: 300;
-        margin-bottom: 1em;
+        margin-bottom: 10px;
 
         @media (min-width: 768px) {
             font-size: 1.2em;
-        }
-    }
-
-    @media (min-width: 1025px) {
-        img {
-            float: left;
-            margin: 0 19px 0 0;
-            padding-left: 3em;
-            padding-right: 1px;
-            width: (2 / 3) * 100%;
         }
     }
 

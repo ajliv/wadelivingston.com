@@ -34,25 +34,23 @@ define([
         },
 
         render: function () {
-            var options = {
-                bgOpacity: 0.95,
-                closeOnScroll: false
-            };
             this.$el.html(this.template());
-            this.gallery = new PhotoSwipe(this.$('.pswp')[0], PhotoSwipeUI, this.photos, options);
-            this.gallery.init();
             return this;
         },
 
-        gotoSlide: function () {
-            var options = {};
 
-            if (this.gallery) {
-                this.gallery.init();
-            }
-
-            return this;
+        goTo: function (i) {
+            var options = {
+                index: i,
+                bgOpacity: 0.95,
+                closeOnScroll: false,
+                showHideOpacity: true,
+                history: false
+            };
+            var gallery = new PhotoSwipe(this.$('.pswp')[0], PhotoSwipeUI, this.photos, options);
+            gallery.init();
         }
+
     });
 
     return ViewerView;

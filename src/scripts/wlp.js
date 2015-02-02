@@ -10,16 +10,23 @@ require.config({
         'lodash': {
             exports: '_'
         },
-        'bootstrap': [ 'jquery' ]
+        'bootstrap': [ 'jquery' ],
+        'waypoints': [ 'jquery' ],
+        'waypoints.inview': [ 'waypoints' ]
     },
     paths: {
-        'jquery'           : '../bower_components/jquery/dist/jquery',
         'backbone'         : '../bower_components/backbone/backbone',
-        'lodash'           : '../bower_components/lodash/dist/lodash',
-        'underscore.string': '../bower_components/underscore.string/dist/underscore.string',
         'bootstrap'        : '../bower_components/bootstrap/dist/js/bootstrap',
+        'fastclick'        : '../bower_components/fastclick/lib/fastclick',
+        'jquery'           : '../bower_components/jquery/dist/jquery',
+        'jquery-ui.effect' : '../bower_components/jquery-ui/ui/effect',
+        'lodash'           : '../bower_components/lodash/dist/lodash',
         'photoswipe'       : '../bower_components/photoswipe/dist/photoswipe',
-        'photoswipeui'     : '../bower_components/photoswipe/dist/photoswipe-ui-default'
+        'photoswipeui'     : '../bower_components/photoswipe/dist/photoswipe-ui-default',
+        'underscore.string': '../bower_components/underscore.string/dist/underscore.string',
+        'waypoints'        : '../bower_components/waypoints/lib/jquery.waypoints',
+        'waypoints.inview' : '../bower_components/waypoints/lib/shortcuts/inview'
+
     },
     map: {
         '*': {
@@ -34,12 +41,14 @@ require([
     'backbone',
     'views/app',
     'collections/photoset',
-    'bootstrap'
+    'bootstrap',
+    'jquery-ui.effect'
 ], function ($, _, Backbone, AppView, PhotosetCollection) {
     var WLP = window.WLP = {};
 
     WLP.Photosets = new PhotosetCollection();
     WLP.Photosets.once('reset', function (collection) {
+        window.scrollTo(0,0);
         new AppView({ collection: collection }).render();
         Backbone.history.start();
     });

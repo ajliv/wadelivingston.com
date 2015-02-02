@@ -15,12 +15,12 @@
 </head>
 <body class="wlp">
 
-    <header id="header" class="wlp-header contain">
+    <header id="header" class="wlp-header contain header-pinned">
         <h1>Wade Livingston Photography</h1>
         <ul class="menu">
-            <li class="active"><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#studio">Studio/Contact</a></li>
+            <li><a class="active" href="#portfolio" data-section="portfolio">Portfolio</a></li>
+            <li><a href="#about" data-section="about">About</a></li>
+            <li><a href="#studio" data-section="studio">Studio/Contact</a></li>
         </ul>
         <ul class="social">
             <li><a href="http://instagram.com/wadelivingston" target="_blank" title="Follow on Instagram"><i class="fa fa-instagram"></i></a></li>
@@ -30,13 +30,20 @@
         </ul>
     </header>
 
-    <div id="portfolio" class="wlp-portfolio contain"></div>
+    <section id="portfolio" class="wlp-portfolio wlp-section contain current"> </section>
 
-    <div id="about" class="wlp-about contain">
-        <p>Wade Livingston has been a photographer for over 25 years, but if you ask him what inspired the photography journey you&rsquo;ll get an answer that sounds more related to brushes than lenses. &ldquo;I actually didn&rsquo;t start taking pictures until college, but before that I was always trying to paint, I really liked doing that,&rdquo; Wade said. &ldquo;I think expressing myself creatively in that way just led naturally to photography.&rdquo;</p>
-    </div>
+    <hr>
 
-    <div id="studio" class="wlp-studio contain">
+    <section id="about" class="wlp-about wlp-section contain">
+        <div class="inner">
+            <!-- <h2>About Wade</h2> -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, ipsa harum dignissimos, natus voluptate doloremque a odit id itaque amet provident incidunt, enim ea debitis magnam modi, nulla quis impedit.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="studio" class="wlp-studio wlp-section contain">
         <img class="img-responsive" src="http://i.wadelivingston.com/images/studio.jpg" alt="">
         <address>
             <a href="https://goo.gl/maps/zk5hT" target="_blank">
@@ -46,7 +53,7 @@
         </address>
         <p>Telephone: <a href="tel:+1-214-830-1377">+1 (214) 830 1377</a></p>
         <p>Email: <a href="mailto:wadelivingston@gmail.com">wadelivingston@gmail.com</a></p>
-    </div>
+    </section>
 
     <footer id="footer" class="wlp-footer contain">
         <p>All photos on this website are copyrighted to Wade Livingston unless noted otherwise. Any unauthorized reproduction is prohibited.</p>
