@@ -34,13 +34,22 @@ a {
   pointer-events: none !important;
 }
 
-.contain {
+.content-container {
+    display: block;
     margin: 0 1em;
     position: relative;
-    padding: 5em 0 10em;
 
     @media (min-width: 480px) {
         margin: 0 3em;
+    }
+}
+
+.contain {
+    margin: 0;
+    position: relative;
+    padding: 5em 0;
+
+    @media (min-width: 768px) {
         padding: 10em 0;
     }
 }

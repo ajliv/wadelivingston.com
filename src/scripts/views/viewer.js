@@ -15,8 +15,6 @@ define([
 
         el: '#viewer',
 
-        events: {},
-
         initialize: function () {
             var photosets = _.pluck(WLP.Photosets.getAllPhotos(), 'sizes');
             var photos = this.photos = [];
@@ -40,14 +38,17 @@ define([
 
 
         goTo: function (i) {
+            var el = this.$('.pswp');
             var options = {
                 index: i,
                 bgOpacity: 0.95,
                 closeOnScroll: false,
                 showHideOpacity: true,
+                showAnimationDuration: 500,
+                hideAnimationDuration: 500,
                 history: false
             };
-            var gallery = new PhotoSwipe(this.$('.pswp')[0], PhotoSwipeUI, this.photos, options);
+            var gallery = window.gallery = new PhotoSwipe(el[0], PhotoSwipeUI, this.photos, options);
             gallery.init();
         }
 

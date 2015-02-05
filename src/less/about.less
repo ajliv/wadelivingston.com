@@ -1,17 +1,13 @@
 .wlp-about {
-    // margin-left: auto;
-    // margin-right: auto;
-    text-align: left;
+    display: table;
+    text-align: center;
+    width: 100%;
 
 
     .inner {
-        display: block;
-        margin: 0 auto;
-        max-width: 600px;
-        position: absolute;
-        top: 50%;
-        left: 0; right: 0;
-        transform: translateY(-50%);
+        display: table-cell;
+        // max-width: 800px;
+        text-align: left;
         vertical-align: middle;
         width: 100%;
     }
@@ -35,6 +31,8 @@
         font-family: "proxima-nova";
         font-size: 1.1em;
         line-height: 1.7;
+        margin: 0 auto;
+        max-width: 800px;
         position: relative;
 
         @media (min-width: 768px) {

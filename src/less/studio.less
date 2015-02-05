@@ -12,9 +12,11 @@
     }
 
     i {
-        color: @silver;
-        font-size: 12px;
-        margin-left: 2px;
+        color: @gray;
+        display: inline-block;
+        line-height: 1.5em;
+        margin-right: 2px;
+        vertical-align: top;
     }
 
     img {
@@ -27,7 +29,6 @@
             float: left;
             margin-bottom: 0;
             margin-right: 19px;
-            // padding-left: 3em;
             padding-right: 1px;
             width: (2 / 3) * 100%;
         }
@@ -38,7 +39,13 @@
         color: @gray;
         font-size: 1em;
         font-weight: 300;
+        line-height: 1.5em;
         margin-bottom: 10px;
+        vertical-align: top;
+
+        > span {
+            display: inline-block;
+        }
 
         @media (min-width: 768px) {
             font-size: 1.2em;

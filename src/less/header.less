@@ -52,6 +52,22 @@
         }
     }
 
+    ul.menu,
+    ul.social {
+        a {
+            color: @gray;
+
+            &:focus,
+            &:active {
+                color: @gray;
+            }
+
+            &:hover {
+                color: @black;
+            }
+        }
+    }
+
     ul.menu {
         display: none;
         float: left;
@@ -63,12 +79,12 @@
 
         a {
             border-bottom-color: transparent;
-            color: @gray;
+            // color: @gray;
             padding-bottom: 1px;
 
             &:hover {
                 border-bottom-color: transparent;
-                color: @black;
+                // color: @black;
             }
 
             &.active {
@@ -80,6 +96,10 @@
 
     ul.social {
         text-align: center;
+
+        @media (max-width: 767px) {
+            font-size: 14px;
+        }
 
         > li {
             float: none;

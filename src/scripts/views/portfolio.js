@@ -39,8 +39,6 @@ define([
 
             e.preventDefault();
 
-            console.log(WLP.Photosets.get(id).toJSON());
-
             this.viewer.goTo(photoset.get('offset'));
         }
     });

@@ -46,9 +46,10 @@ require([
 ], function ($, _, Backbone, AppView, PhotosetCollection) {
     var WLP = window.WLP = {};
 
+    window.scrollTo(0,0);
+
     WLP.Photosets = new PhotosetCollection();
     WLP.Photosets.once('reset', function (collection) {
-        window.scrollTo(0,0);
         new AppView({ collection: collection }).render();
         Backbone.history.start();
     });
