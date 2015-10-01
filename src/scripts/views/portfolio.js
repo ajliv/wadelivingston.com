@@ -1,47 +1,21 @@
-/*global define*/
+'use strict';
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'templates',
-    'views/viewer',
-    'underscore.string'
-], function ($, _, Backbone, JST, ViewerView, s) {
-    'use strict';
+var Backbone = require('backbone');
+var PhotosetView = require('./photoset');
 
-    var PortfolioView = Backbone.View.extend({
-        template: JST['src/scripts/templates/portfolio.ejs'],
+module.exports = Backbone.View.extend({
 
-        el: '#portfolio',
+    initialize: function () {
+        this.listenToOnce(this.collection, 'reset', this.render);
+        return this;
+    },
 
-        events: {
-            'click a[data-photoset]': 'openPhotoset'
-        },
-
-        initialize: function () {
-            this.viewer = new ViewerView().render();
-            return this;
-        },
-
-        render: function () {
-            var data = { photosets: this.collection.toJSON() };
-            _.forEach(data.photosets, function (photoset) {
-                if (!photoset.slug) photoset.slug = s.slugify(photoset.title);
-            });
-            this.$el.html( this.template(data) );
-            return this;
-        },
-
-        openPhotoset: function (e) {
-            var id = $(e.currentTarget).data('photoset');
-            var photoset = WLP.Photosets.get(id);
-
-            e.preventDefault();
-
-            this.viewer.goTo(photoset.get('offset'));
-        }
-    });
-
-    return PortfolioView;
+    render: function () {
+        var $photosets = this.$('.photosets');
+        this.collection.forEach(function (photoset) {
+            var photosetView = new PhotosetView({ model: photoset });
+            $photosets.append(photosetView.render().el);
+        }, this);
+        return this;
+    }
 });

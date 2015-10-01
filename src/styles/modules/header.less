@@ -1,0 +1,136 @@
+.header {
+    .clearfix();
+    background-color: fade(white, 100);
+    margin: 0;
+    overflow: hidden;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    position: relative;
+    transition: padding .2s @easeInOutQuad;
+    z-index: 10;
+
+    @media (min-width: @screen-xs) {
+        padding-top: 4.3em;
+        padding-bottom: 4.3em;
+    }
+    @media (min-width: @screen-md) {
+        height: 10em;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+
+    h1, ul {
+        font-size: 1.2em;
+        letter-spacing: .5px;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-weight: 500;
+        margin-bottom: 1em;
+        text-align: center;
+        text-transform: uppercase;
+        
+        @media (min-width: @screen-xs) {
+            font-size: 1.3em;
+        }
+        @media (min-width: @screen-md) {
+            float: left;
+            font-size: 1.2em;
+            margin-right: 2em;
+            margin-bottom: 0;
+            text-align: left;
+        }
+    }
+
+    ul {
+        .clearfix();
+        list-style: none;
+
+        > li {
+            display: inline-block;
+            float: none;
+            padding: 0;
+
+            @media (min-width: @screen-md) {
+                display: block;
+                float: left;
+            }
+        }
+    }
+
+    a {
+        color: @gray;
+
+        &:focus, &:active {
+            color: @gray;
+        }
+        &:hover {
+            color: @black;
+        }
+    }
+
+
+    .menu {
+        display: none;
+        float: left;
+        font-weight: 300;
+
+        @media (min-width: @screen-md) {
+            display: block;
+        }
+
+        > li {
+            margin: 0 1em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        a {
+            border-bottom-color: transparent;
+
+            &:hover {
+                border-bottom-color: transparent;
+            }
+            &.active {
+                border-bottom-color: @aqua;
+                color: @black;
+            }
+        }
+    }
+
+    .social {
+        text-align: center;
+
+        @media (min-width: @screen-md) {
+            float: right;
+        }
+
+        > li {
+            margin-right: .5em;
+            margin-left: .5em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        a {
+            border-bottom: none;
+        }
+    }
+
+}

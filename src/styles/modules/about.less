@@ -1,0 +1,23 @@
+.about-section {
+    p {
+        color: @black;
+        font-family: 'proxima-nova';
+        font-size: 1em;
+        line-height: 1.7;
+        position: relative;
+
+        @media (min-width: 480px) {
+            font-size: 1.1em;
+        }
+        @media (min-width: 768px) {
+            font-size: 1.2em;
+        }
+        @media (min-width: 1024px) {
+            font-size: 1.3em;
+        }
+    }
+
+    .column {
+        .make-md-column(8);
+    }
+}
