@@ -35,7 +35,7 @@ gulp.task('scripts:browserify', ['scripts:lint'], function () {
 gulp.task('scripts:uglify', ['scripts:browserify'], function () {
     return gulp.src( config.dist + '/**/*.js' )
         .pipe( sourcemaps.init() )
-        // .pipe( uglify() )
+        .pipe( uglify() )
         .on( 'error', utils.handleErrors )
         .pipe( rename({ suffix: '.min' }) )
         .pipe( sourcemaps.write('./', { includeContent: false }) )

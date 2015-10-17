@@ -1,10 +1,12 @@
 'use strict';
 
 var _ = require('lodash');
+var $ = require('jquery');
 var Backbone = require('backbone');
 var PhotoSwipe = require('photoswipe');
 var PhotoSwipeUI = require('photoswipe-ui');
 
+var MetaView = require('./meta');
 var SlideshowTemplate = require('../templates/slideshow.ejs');
 var Vent = require('../vent');
 
@@ -14,72 +16,72 @@ module.exports = Backbone.View.extend({
     className: 'slideshow',
 
     initialize: function () {
-        this.listenTo(this.collection, 'reset', this.render);
-        this.listenTo(Vent, 'photoset:open', this.onPhotosetOpen);
+        this.currentIndex = 0;
+        this.photos = [];
+
+        this.listenToOnce(this.collection, 'reset', function () {
+            this.photos = this.collection.getPhotos();
+            this.render();
+            this.listenTo(Vent, 'photoset:open', this.onPhotosetOpen);
+        });
+
         return this;
     },
 
     render: function () {
-        this.$el.html(this.template());
+        this.$el
+            .html(this.template())
+            .find('.pswp__meta')
+            .append(new MetaView({ collection: this.collection }).render().el);
+
         return this;
     },
 
-    getPhotos: function () {
-        var photosets = this.collection.toJSON();
-        return _(photosets)
-            .pluck('photos')
-            .flatten()
-            .pluck('sizes')
-            .map(function (photo) {
-                return {
-                    src: photo.large.src,
-                    msrc: photo.small.src,
-                    w: photo.large.width,
-                    h: photo.large.height
-                };
-            }).value();
-    },
-
-    openPhotoSwipe: function (i, el) {
-        if (i < 0) return;
+    openSlideshow: function () {
+        var $window = $(window);
+        var _getThumbBoundsFn = function () {
+            return {
+                x: $window.width() * 0.5,
+                y: $window.height() * 0.5 + $window.scrollTop(),
+                w: 0
+            };
+        };
 
         var psOptions = {
-            index: i,
+            index: this.currentIndex,
             bgOpacity: 0.95,
             closeOnScroll: false,
             showHideOpacity: true,
-            showAnimationDuration: 500,
-            hideAnimationDuration: 500,
+            showAnimationDuration: 300,
+            hideAnimationDuration: 300,
             history: false,
+            counterEl: false,
             getThumbBoundsFn: function () {
-                var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-                var rect = el ? el.getBoundingClientRect() : false;
-                if (!rect) return { x: 0, y: 0, w: 0 };
-
-                console.log(rect, {
-                    x: rect.left,
-                    y: rect.top + pageYScroll,
-                    w: rect.width
-                });
-
-                return {
-                    x: rect.left,
-                    y: rect.top + pageYScroll,
-                    w: 0 //rect.width
-                };
+                return _getThumbBoundsFn();
             }
         };
-        var gallery = new PhotoSwipe(this.$('.pswp')[0], PhotoSwipeUI, this.getPhotos(), psOptions);
 
+        var gallery = new PhotoSwipe(this.$('.pswp')[0], PhotoSwipeUI, this.photos, psOptions);
+        gallery.listen('beforeChange', _.bind(this.onBeforeChange, this));
         gallery.init();
     },
 
-    onPhotosetOpen: function (id, el) {
+    onBeforeChange: function (inc) {
+        var index = this.currentIndex + inc;
+        var photo = this.photos[index];
+        if (!photo) return;
+
+        this.currentIndex = index;
+        Vent.trigger('slideshow:change', index, photo);
+    },
+
+    onPhotosetOpen: function (id) {
         var photoset = this.collection.get(id);
         if (!photoset) return;
 
         var index = photoset.get('offset') || 0;
+        this.currentIndex = index;
 
-        this.openPhotoSwipe(index, el);
+        this.openSlideshow();
     }
 });

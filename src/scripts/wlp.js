@@ -1,6 +1,8 @@
 'use strict';
 
 var $ = require('jquery');
+global.$ = $;
+
 var Backbone = require('backbone');
 Backbone.$ = $;
 
@@ -12,11 +14,7 @@ $(function () {
     
     new LayoutView({ collection: photosets });
 
-    $.ajax('http://i.wadelivingston.com/data/photosets.json')
-        .done(function (data) {
-            photosets.reset(data);
-            console.log(photosets.toJSON());
-        });
+    photosets.fetch({ reset: true });
     
     Backbone.history.start();
 });

@@ -19,20 +19,28 @@
         .make-sm-column(6);
         .make-md-column(4);
         .make-lg-column(3);
-    
+        
         cursor: pointer;
         margin: 0 0 2px;
-        opacity: 0;
         overflow: hidden;
         padding: 0 1px;
         position: relative;
-        transition: opacity .3s @easeInOutQuad;
         width: 100%;
 
         html.no-touch &:hover {
             .photoset-info {
                 opacity: 1;
             }
+        }
+
+        &:before {
+            background-color: #f6f6f6;
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 1px;
+            bottom: 0;
+            left: 1px;
         }
 
         img {
@@ -45,7 +53,10 @@
 
     .photoset-contain {
         background-size: cover;
+        opacity: 0;
         position: relative;
+        transition: opacity .3s @easeInOutQuad;
+        z-index: 1;
 
         &:before {
             content: '';
@@ -62,6 +73,7 @@
         top: 0; left: 0;
         transition: opacity .2s @easeInOutQuad;
         width: 100%; height: 100%;
+        z-index: 2;
     }
 
     .photoset-title {

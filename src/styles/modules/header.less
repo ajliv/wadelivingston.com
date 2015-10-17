@@ -1,20 +1,35 @@
 .header {
     .clearfix();
-    background-color: fade(white, 100);
+    background-color: fade(white, 25);
     margin: 0;
     overflow: hidden;
-    padding-top: 3em;
-    padding-bottom: 3em;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     position: relative;
-    transition: padding .2s @easeInOutQuad;
+    transition: padding .2s @easeInOutQuad, background-color .3s @easeInOutQuad;
     z-index: 10;
 
+    body.at-top &,
+    body.scrolling-up &,
+    html.no-touch &:hover,
+    html.touch &.hover {
+        background-color: white;
+
+        ul {
+            opacity: 1;
+        }
+
+        .expand {
+            opacity: 0;
+        }
+    }
+
     @media (min-width: @screen-xs) {
-        padding-top: 4.3em;
-        padding-bottom: 4.3em;
+        padding-top: 4.3rem;
+        padding-bottom: 4.3rem;
     }
     @media (min-width: @screen-md) {
-        height: 10em;
+        height: 10rem;
         position: fixed;
         top: 0;
         left: 0;
@@ -22,8 +37,8 @@
     }
 
 
-    h1, ul {
-        font-size: 1.2em;
+    h1, ul, .expand {
+        font-size: 1.2rem;
         letter-spacing: .5px;
         line-height: 1;
         margin: 0;
@@ -31,6 +46,7 @@
     }
 
     h1 {
+        cursor: pointer;
         font-weight: 500;
         margin-bottom: 1em;
         text-align: center;
@@ -51,6 +67,13 @@
     ul {
         .clearfix();
         list-style: none;
+        position: relative;
+        z-index: 2;
+
+        @media (min-width: @screen-md) {
+            transition: opacity .3s @easeInOutQuad;
+            opacity: 0;
+        }
 
         > li {
             display: inline-block;
@@ -70,7 +93,7 @@
         &:focus, &:active {
             color: @gray;
         }
-        &:hover {
+        html.no-touch &:hover {
             color: @black;
         }
     }
@@ -99,7 +122,7 @@
         a {
             border-bottom-color: transparent;
 
-            &:hover {
+            html.no-touch &:hover {
                 border-bottom-color: transparent;
             }
             &.active {
@@ -130,6 +153,20 @@
 
         a {
             border-bottom: none;
+        }
+    }
+
+    .expand {
+        display: none;
+        position: absolute;
+        right: 3rem;
+        transition: opacity .3s @easeInOutQuad;
+        z-index: 1;
+
+        @media (min-width: @screen-md) {
+            html.touch & {
+                display: block;
+            }
         }
     }
 

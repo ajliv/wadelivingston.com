@@ -26,7 +26,7 @@ module.exports = Backbone.View.extend({
         this.$el.html(this.template(this.model.toJSON()));
 
         img.onload = _.bind(function () {
-            this.$el.css('opacity', 1);
+            this.$('.photoset-contain').css('opacity', 1);
         }, this);
         img.src = cover.large.src;
 
@@ -35,7 +35,7 @@ module.exports = Backbone.View.extend({
 
     onClick: function (e) {
         e.preventDefault();
-        Vent.trigger('photoset:open', this.model.id, this.el);
+        Vent.trigger('photoset:open', this.model.id);
     }
 
 });

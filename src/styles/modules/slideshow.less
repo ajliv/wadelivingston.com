@@ -32,9 +32,11 @@
         &:before {
             background-color: transparent;
         }
-        &:hover {
-            background-color: fade(white, 90);
-            color: fade(@black, 60);
+        html.touch &:active,
+        html.no-touch &:hover {
+            background-color: white;
+            box-shadow: 1px 1px 1px fade(black, 10);
+            color: @black;
         }
     }
 
@@ -63,13 +65,30 @@
     .pswp__button--arrow--left,
     .pswp__button--arrow--right {
         background-color: transparent;
+        box-sizing: content-box;
+        display: none;
         font-size: 2em;
+        margin: 0 22px;
+        padding: 22px;
         text-align: center;
-        width: 3em;
-        height: 3em;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
 
-        &:hover {
-            background-color: fade(white, 60);
+        html.no-touch & {
+            display: inline-block;
+        }
+
+        @media (min-width: @screen-sm) {
+            display: inline-block;
+        }
+
+        html.touch &:active,
+        html.no-touch &:hover {
+            background-color: white;
+            box-shadow: 1px 1px 1px fade(black, 10);
+            color: @black;
         }
 
         &:before {

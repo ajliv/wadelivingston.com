@@ -1,0 +1,10 @@
+<% if (typeof meta !== 'undefined') {
+    for (var key in meta) {
+        if (meta.hasOwnProperty(key)) { %>
+        <li>
+            <span class="credit-key"><%= key.charAt(0).toUpperCase() + key.slice(1) %></span>
+            <span class="credit-value"><%= meta[key].join(', ') %></span>
+        </li>
+        <% }
+    }
+} %>

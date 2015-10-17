@@ -1,6 +1,12 @@
+body,
+html {
+    font-size: 14px;
+}
+
 body {
     font-family: @wlp-font-face;
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
     position: relative;
 
@@ -36,8 +42,8 @@ body > .loader {
         position: absolute;
         top: 50%; right: 0; left: 0;
         transform: translateY(-50%);
-        width: 3em;
-        height: 3em;
+        width: 3rem;
+        height: 3rem;
     }
 }
 body.loading > .loader {
@@ -90,23 +96,50 @@ a {
 .contain {
     .clearfix();
     margin: 0;
-    padding-top: 5em;
-    padding-right: 2em;
-    padding-bottom: 5em;
-    padding-left: 2em;
+    padding-top: 5rem;
+    padding-right: 2rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
     position: relative;
 
     @media (min-width: @screen-xs) {
-        padding-right: 3em;
-        padding-left: 3em;
+        padding-right: 3rem;
+        padding-left: 3rem;
     }
     @media (min-width: @screen-md) {
-        padding-top: 10em;
-        padding-bottom: 10em;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
     }
+    @media (max-width: @screen-sm-max) {
+        &.section:first-child {
+            padding-top: 0;
+        }
+    }
+
 }
 
 .section {
     .clearfix();
     min-height: 100vh;
+}
+
+.section-header {
+    .make-xs-column(12);
+    color: @black;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: .5px;
+    margin: 0 0 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    
+    @media (min-width: @screen-md) {
+        display: none;
+    }
+
+    span {
+        border-bottom: 1px solid @aqua;
+        display: inline-block;
+    }
 }
