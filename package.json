@@ -33,34 +33,61 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "animate.css": "^3.4.0",
     "backbone": "^1.2.3",
     "bootstrap": "^3.3.5",
     "colors.css": "^2.3.0",
     "font-awesome": "^4.4.0",
     "jquery": "^2.1.4",
+    "lazyloadxt": "^1.0.5",
     "lodash": "^3.10.1",
     "photoswipe": "^4.1.0",
     "waypoints": "^4.0.0"
   },
   "browser": {
+    "lazyloadxt": "./node_modules/lazyloadxt/dist/jquery.lazyloadxt.js",
+    "lazyloadxt.bg": "./node_modules/lazyloadxt/dist/jquery.lazyloadxt.bg.js",
     "photoswipe": "./node_modules/photoswipe/dist/photoswipe.js",
     "photoswipe-ui": "./node_modules/photoswipe/dist/photoswipe-ui-default.js",
     "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js"
   },
   "browserify": {
     "transform": [
-      ["aliasify", {
-        "aliases": {
-          "underscore": "lodash"
+      "browserify-shim",
+      [
+        "aliasify",
+        {
+          "aliases": {
+            "underscore": "lodash"
+          }
         }
-      }],
-      ["node-underscorify", {
-        "extensions": ["ejs"],
-        "requires": [{
-          "variable": "_",
-          "module": "lodash"
-        }]
-      }]
+      ],
+      [
+        "node-underscorify",
+        {
+          "extensions": [
+            "ejs"
+          ],
+          "requires": [
+            {
+              "variable": "_",
+              "module": "lodash"
+            }
+          ]
+        }
+      ]
     ]
+  },
+  "browserify-shim": {
+    "lazyloadxt": {
+      "depends": [
+        "jquery:$"
+      ]
+    },
+    "lazyloadxt.bg": {
+      "depends": [
+        "lazyloadxt"
+      ]
+    }
   }
 }
