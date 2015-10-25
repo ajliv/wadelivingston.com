@@ -68,10 +68,16 @@ module.exports = Backbone.View.extend({
 
     onBeforeChange: function (inc) {
         var index = this.currentIndex + inc;
-        var photo = this.photos[index];
+        var photo;
+
+        if (index < 0) index = this.photos.length + index;
+        if (index >= this.photos.length) index = this.photos.length - index;
+
+        photo = this.photos[index];
         if (!photo) return;
 
         this.currentIndex = index;
+
         Vent.trigger('slideshow:change', index, photo);
     },
 
