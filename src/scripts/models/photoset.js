@@ -1,33 +1,14 @@
-/*global define*/
+'use strict';
 
-define([
-    'underscore',
-    'backbone'
-], function (_, Backbone) {
-    'use strict';
+var Backbone = require('backbone');
 
-    var PhotosetModel = Backbone.Model.extend({
-        idAttribute: '_id',
+module.exports = Backbone.Model.extend({
+    idAttribute: '_id',
 
-        url: '',
-
-        defaults: {
+    defaults: function () {
+        return {
             photos: [],
             title: ''
-        },
-
-        initialize: function() {
-            return this;
-        },
-
-
-        validate: function(attrs, options) {
-        },
-
-        parse: function(response, options)  {
-            return response;
-        }
-    });
-
-    return PhotosetModel;
+        };
+    }
 });

@@ -1,40 +1,42 @@
-/*global define*/
+'use strict';
 
-define([
-    'underscore',
-    'backbone',
-    'models/photoset'
-], function (_, Backbone, PhotosetModel) {
-    'use strict';
+var _ = require('lodash');
+var Backbone = require('backbone');
+var PhotosetModel = require('../models/photoset');
 
-    var PhotosetCollection = Backbone.Collection.extend({
-        model: PhotosetModel,
+module.exports = Backbone.Collection.extend({
 
+    url: 'http://i.wadelivingston.com/data/photosets.json',
 
-        initialize: function () {
-            this.on('add remove reset', this.setOffsets, this);
-            return this;
-        },
+    model: PhotosetModel,
 
+    parse: function (response) {
+        var offset = 0;
+        var photosets = response;
 
-        setOffsets: function () {
-            var offset = 0;
+        photosets = _(photosets).map(function (photoset) {
+            photoset.photos = _(photoset.photos).map(function (photo) {
+                return _.extend(photo, {
+                    _parent: photoset._id,
+                    _parentTitle: photoset.title,
+                    src: photo.sizes.large.src,
+                    msrc: photo.sizes.small.src,
+                    w: photo.sizes.large.width,
+                    h: photo.sizes.large.height
+                });
+            }).value();
 
-            this.forEach(function (ps) {
-                ps.set('offset', offset);
-                offset += ps.get('photos').length;
-            });
+            photoset.offset = offset;
+            offset += photoset.photos.length;
 
-            return this;
-        },
+            return photoset;
+        }).value();
 
+        return photosets;
+    },
 
-        getAllPhotos: function () {
-            var json = this.toJSON();
-            return _.flatten(_.pluck(json, 'photos'));
-        }
-
-    });
-
-    return PhotosetCollection;
+    getPhotos: function () {
+        var photos = this.pluck('photos');
+        return _.flatten(photos);
+    }
 });

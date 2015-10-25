@@ -1,0 +1,173 @@
+.header {
+    .clearfix();
+    background-color: fade(white, 25);
+    margin: 0;
+    overflow: hidden;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    transition: padding .3s @easeInOutQuad, background-color .3s @easeInOutQuad;
+    z-index: 10;
+
+    body.at-top &,
+    body.scrolling-up &,
+    html.no-touch &:hover,
+    html.touch &.hover {
+        background-color: white;
+
+        ul {
+            opacity: 1;
+        }
+
+        .expand {
+            opacity: 0;
+        }
+    }
+
+    @media (min-width: @screen-xs) {
+        padding-top: 4.3rem;
+        padding-bottom: 4.3rem;
+    }
+    @media (min-width: @screen-md) {
+        height: 10rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+
+    h1, ul, .expand {
+        font-size: 1.2rem;
+        letter-spacing: .5px;
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        cursor: pointer;
+        font-weight: 500;
+        margin-bottom: 1em;
+        text-align: center;
+        text-transform: uppercase;
+        
+        @media (min-width: @screen-xs) {
+            font-size: 1.3em;
+        }
+        @media (min-width: @screen-md) {
+            float: left;
+            font-size: 1.2em;
+            margin-right: 2em;
+            margin-bottom: 0;
+            text-align: left;
+        }
+    }
+
+    ul {
+        .clearfix();
+        list-style: none;
+        position: relative;
+        z-index: 2;
+
+        @media (min-width: @screen-md) {
+            transition: opacity .3s @easeInOutQuad;
+            opacity: 0;
+        }
+
+        > li {
+            display: inline-block;
+            float: none;
+            padding: 0;
+
+            @media (min-width: @screen-md) {
+                display: block;
+                float: left;
+            }
+        }
+    }
+
+    a {
+        color: @gray;
+
+        &:focus, &:active {
+            color: @gray;
+        }
+        html.no-touch &:hover {
+            color: @black;
+        }
+    }
+
+
+    .menu {
+        display: none;
+        float: left;
+        font-weight: 300;
+
+        @media (min-width: @screen-md) {
+            display: block;
+        }
+
+        > li {
+            margin: 0 1em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        a {
+            border-bottom-color: transparent;
+
+            html.no-touch &:hover {
+                border-bottom-color: transparent;
+            }
+            &.active {
+                border-bottom-color: @aqua;
+                color: @black;
+            }
+        }
+    }
+
+    .social {
+        text-align: center;
+
+        @media (min-width: @screen-md) {
+            float: right;
+        }
+
+        > li {
+            margin-right: .5em;
+            margin-left: .5em;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        a {
+            border-bottom: none;
+        }
+    }
+
+    .expand {
+        display: none;
+        position: absolute;
+        right: 3rem;
+        transition: opacity .3s @easeInOutQuad;
+        z-index: 1;
+
+        @media (min-width: @screen-md) {
+            html.touch & {
+                display: block;
+            }
+        }
+    }
+
+}

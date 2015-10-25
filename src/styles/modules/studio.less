@@ -1,16 +1,8 @@
-.wlp-studio {
-    .clearfix;
-
-    .studio-contact {
-        float: none;
-    }
-
-
+.studio-section {
     a {
         display: inline;
-        padding-bottom: 0;
     }
-
+    
     i {
         color: @gray;
         display: inline-block;
@@ -20,36 +12,37 @@
     }
 
     img {
+        .make-xs-column(12);
+        .make-md-column(8);
         margin: 0 0 1em;
 
         @media (min-width: 768px) {
             margin-bottom: 1.2em;
         }
-        @media (min-width: 1025px) {
-            float: left;
+        @media (min-width: @screen-md) {
             margin-bottom: 0;
-            margin-right: 19px;
-            padding-right: 1px;
-            width: (2 / 3) * 100%;
         }
     }
-
-    p,
-    address {
+    
+    p {
         color: @gray;
         font-size: 1em;
         font-weight: 300;
         line-height: 1.5em;
-        margin-bottom: 10px;
-        vertical-align: top;
-
-        > span {
-            display: inline-block;
-        }
+        margin-bottom: 1em;
 
         @media (min-width: 768px) {
             font-size: 1.2em;
         }
+    }
+
+    span {
+        display: inline-block;
+    }
+
+    .contact-info {
+        .make-xs-column(12);
+        .make-md-column(4);
     }
 
 }

@@ -1,47 +1,32 @@
-/*global define*/
+'use strict';
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'templates',
-    'views/viewer',
-    'underscore.string'
-], function ($, _, Backbone, JST, ViewerView, s) {
-    'use strict';
+var $ = require('jquery');
+var Backbone = require('backbone');
+var PhotosetView = require('./photoset');
+var SlideshowView = require('./slideshow');
 
-    var PortfolioView = Backbone.View.extend({
-        template: JST['src/scripts/templates/portfolio.ejs'],
+require('lazyloadxt');
+$.lazyLoadXT.autoInit = false;
+$.lazyLoadXT.onload.addClass = 'animated fadeIn';
 
-        el: '#portfolio',
+module.exports = Backbone.View.extend({
 
-        events: {
-            'click a[data-photoset]': 'openPhotoset'
-        },
+    initialize: function () {
+        this.$el.append(new SlideshowView({ collection: this.collection }).el);
+        this.listenToOnce(this.collection, 'reset', this.render);
 
-        initialize: function () {
-            this.viewer = new ViewerView().render();
-            return this;
-        },
+        return this;
+    },
 
-        render: function () {
-            var data = { photosets: this.collection.toJSON() };
-            _.forEach(data.photosets, function (photoset) {
-                if (!photoset.slug) photoset.slug = s.slugify(photoset.title);
-            });
-            this.$el.html( this.template(data) );
-            return this;
-        },
+    render: function () {
+        var $photosets = this.$('.photosets');
+        this.collection.forEach(function (photoset) {
+            var photosetView = new PhotosetView({ model: photoset });
+            $photosets.append(photosetView.render().el);
+        }, this);
 
-        openPhotoset: function (e) {
-            var id = $(e.currentTarget).data('photoset');
-            var photoset = WLP.Photosets.get(id);
+        this.$('.photoset-image').lazyLoadXT();
 
-            e.preventDefault();
-
-            this.viewer.goTo(photoset.get('offset'));
-        }
-    });
-
-    return PortfolioView;
+        return this;
+    }
 });
