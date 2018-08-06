@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.1.0",
   "description": "",
+  "scripts": {
+      "dev": "gulp"
+  },
   "devDependencies": {
     "aliasify": "^1.7.2",
     "browser-sync": "^2.9.3",
@@ -38,7 +41,7 @@
     "bootstrap": "^3.3.5",
     "colors.css": "^2.3.0",
     "font-awesome": "^4.4.0",
-    "jquery": "^2.1.4",
+    "jquery": "^3.3.1",
     "lazyloadxt": "^1.0.5",
     "lodash": "^3.10.1",
     "photoswipe": "^4.1.0",

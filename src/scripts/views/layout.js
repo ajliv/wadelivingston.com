@@ -37,13 +37,13 @@ module.exports = Backbone.View.extend({
 
         this.$el.addClass('at-top');
 
-        new PortfolioView({ 
+        new PortfolioView({
             el: this.$('#portfolio'),
-            collection: this.collection 
+            collection: this.collection
         });
 
         this.setupWaypoints();
-        
+
         _.bindAll(this, 'onResize', 'onScroll');
         $window.on({
             'resize': this.onResize,
@@ -93,7 +93,7 @@ module.exports = Backbone.View.extend({
         if (!$section || $section.hasClass('current')) return;
 
         this.$('#header .menu a').removeClass('active')
-            .filter('[href=#' + $section.attr('id') + ']')
+            .filter('[href="#' + ($section.attr('id')) + '"]')
             .addClass('active');
 
         this.$('.section').removeClass('current');
@@ -117,7 +117,7 @@ module.exports = Backbone.View.extend({
         if ($target.hasClass('menu-section')) {
             $section = $($target.attr('href'));
             if (!$section) return;
-            
+
             e.preventDefault();
 
             $('html, body').stop().animate({ scrollTop: $section.offset().top }, {
