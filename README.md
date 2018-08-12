@@ -1,3 +1,3 @@
 # Wade Livingston Photography
 
-<wadelivingston.com>
+<http://wadelivingston.com>
