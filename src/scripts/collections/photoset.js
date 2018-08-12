@@ -6,7 +6,7 @@ var PhotosetModel = require('../models/photoset');
 
 module.exports = Backbone.Collection.extend({
 
-    url: 'http://i.wadelivingston.com/data/photosets.json',
+    url: '/data/photosets.json',
 
     model: PhotosetModel,
 

@@ -4,7 +4,9 @@
   "version": "1.1.0",
   "description": "",
   "scripts": {
-    "dev": "gulp"
+    "build": "gulp build",
+    "dev": "gulp",
+    "deploy": "aws s3 sync dist s3://wadelivingston.com/"
   },
   "devDependencies": {
     "aliasify": "^1.7.2",
