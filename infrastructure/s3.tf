@@ -44,6 +44,19 @@ resource "aws_s3_bucket" "logs_bucket" {
   }
 }
 
+resource "aws_s3_bucket" "alternate_buckets" {
+  count = "${length(var.alternate_domain_names)}"
+
+  bucket        = "www.${element(var.alternate_domain_names, count.index)}"
+  acl           = "private"
+  force_destroy = "true"
+  tags          = "${var.tags}"
+
+  website {
+    redirect_all_requests_to = "${var.domain_name}"
+  }
+}
+
 resource "aws_s3_bucket" "bucket" {
   bucket        = "${var.domain_name}"
   acl           = "private"

@@ -3,6 +3,13 @@ resource "aws_route53_zone" "domain" {
   tags = "${var.tags}"
 }
 
+resource "aws_route53_zone" "alternate_domains" {
+  count = "${length(var.alternate_domain_names)}"
+
+  name = "${element(var.alternate_domain_names, count.index)}"
+  tags = "${var.tags}"
+}
+
 resource "aws_route53_record" "cert_validation" {
   name    = "${aws_acm_certificate.cert.domain_validation_options.0.resource_record_name}"
   type    = "${aws_acm_certificate.cert.domain_validation_options.0.resource_record_type}"
@@ -31,6 +38,19 @@ resource "aws_route53_record" "www_record" {
 
   records = [
     "${aws_s3_bucket.www_bucket.website_endpoint}",
+  ]
+}
+
+resource "aws_route53_record" "alternate_records" {
+  count = "${length(var.alternate_domain_names)}"
+
+  zone_id = "${element(aws_route53_zone.alternate_domains.*.zone_id, count.index)}"
+  name    = "www.${element(var.alternate_domain_names, count.index)}"
+  type    = "CNAME"
+  ttl     = 7200
+
+  records = [
+    "${aws_s3_bucket.alternate_buckets.*.website_endpoint}",
   ]
 }
 

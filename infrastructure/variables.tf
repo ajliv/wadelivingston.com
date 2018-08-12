@@ -4,6 +4,10 @@ variable "region" {
 
 variable "domain_name" {}
 
+variable "alternate_domain_names" {
+  default = []
+}
+
 variable "tags" {
   default = {}
 }
