@@ -43,7 +43,7 @@
     "bootstrap": "^3.3.5",
     "colors.css": "^2.3.0",
     "font-awesome": "^4.4.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lazyloadxt": "^1.0.5",
     "lodash": "^4.17.10",
     "photoswipe": "^4.1.0",
